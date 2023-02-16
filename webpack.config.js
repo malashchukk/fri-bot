@@ -7,6 +7,10 @@ import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 import CopyPlugin from "copy-webpack-plugin";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
+import Dotenv from "dotenv-webpack";
+// const Dotenv = require("dotenv-webpack");
+// import { DefinePlugin } from "webpack";
+// const Dotenv = require("dotenv-webpack");
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -38,6 +42,13 @@ const config = {
     new CopyPlugin({
       patterns: [{ from: "src/assets", to: "assets" }],
     }),
+    // new dotenv({
+    //   // makes vars available to the application js code
+    //   path: ".env.webpack",
+    //   sample: ".env.webpack.example",
+    //   allowEmptyValues: true,
+    // }),
+    new Dotenv(),
   ],
   module: {
     rules: [
